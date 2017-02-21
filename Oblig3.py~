@@ -1,0 +1,29 @@
+from scitools.std import *
+from Generell import *
+
+
+t, z, v = generell(b=0.1, k = 10, m = 0.1)
+
+#Vi regner dette analytisk for underkritisk demping
+#Her er A initialbetingelsen for z = 0.1
+A = 0.1
+b = 0.1
+m = 0.1
+k = 10
+omega = sqrt(k/m)
+gamma = b/(2*m)
+omega_ = sqrt(omega**2-gamma**2)
+z_a = exp(-gamma*t)*A*cos(omega_*t)
+plot(t, z, t, z_a)
+xlabel('Tid [s]')
+ylabel('Hoyde [m]')
+title('Numerisk losning av dempet svingning')
+
+
+#plot(t,z-z_a)
+xlabel('Tid [s]')
+ylabel('Forskjell i hoyde [m]')
+title('Forskjell i analytisk og numerisk losning')
+
+
+

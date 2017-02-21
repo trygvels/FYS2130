@@ -1,0 +1,11 @@
+from urllib2 import urlopen
+tuba='http://www.uio.no/studier/emner/matnat/fys/FYS2130/v15/tubalow.wav'
+piccolo='http://www.uio.no/studier/emner/matnat/fys/FYS2130/v15/piccolohigh.wav'
+s  = urlopen(tuba)
+N=2**16
+
+[f,Fs]= audioread(s,[0,N]);
+
+g=f(:,0)     #Henter ut ett monosignal fra stereo signalet f
+X=fft.fft(g)     #Fast Fourier Transform av lydsignalet
+Xa=abs(X)    #Finner absolutt verdien av fourierspekter

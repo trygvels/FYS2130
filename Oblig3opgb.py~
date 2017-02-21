@@ -1,0 +1,21 @@
+from scitools.std import *
+from Generell import *
+
+
+
+# gamma = omega gir kritisk demping. Vi faar det ved k = 0.025 og b = 0.1
+# gamma > omega gir overkritisk demping. vi velger b = 3 og k = 10
+# gamma < omega gir underkritisk demping. Vi velger b = 0.1 og k = 10
+
+t1, z1, v1 = generell(0.1,0.025, 0.1)
+t2, z2, v2 = generell(3,10, 0.1)
+t3, z3, v3 = generell(0.1,10, 0.1)
+plot(t1,z1,t2,z2,t3, z3)
+
+xlabel('Tid [s]')
+ylabel('Hoyde [m]')
+title('Numerisk losning av dempet svingning')
+
+
+
+
